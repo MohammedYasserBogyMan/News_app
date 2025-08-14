@@ -32,16 +32,13 @@ class AllNewsView extends StatelessWidget {
             child: BlocBuilder<BreakingNewsCubit, BreakingNewsState>(
               builder: (context, state) {
                 if (state is BreakingNewsLoading) {
-                  // عرض Indicator التحميل
                   return const Center(child: CircularProgressIndicator());
                 } else if (state is BreakingNewsLoaded) {
-                  // هنا يتم تمرير breakingNews بشكل صحيح
                   return NewsListView(breakingNews: state.breakingNews);
                 } else if (state is BreakingNewsError) {
-                  // معالجة الأخطاء
                   return Center(child: Text('خطأ: ${state.toString()}'));
                 } else {
-                  return Container(); // حالة افتراضية
+                  return Container();
                 }
               },
             ),

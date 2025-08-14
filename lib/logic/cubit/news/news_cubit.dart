@@ -12,22 +12,10 @@ class NewsCubit extends Cubit<NewsState> {
   Future<void> getNews() async {
     emit(NewsLoading());
     try {
-      List<NewsModel> news =
-          await NewsServices().getAllNews(); // استدعاء البيانات بشكل صحيح
+      List<NewsModel> news = await NewsServices().getAllNews();
       emit(NewsLoaded(news: news));
     } catch (e) {
-      emit(NewsError(errMessage: e.toString())); // التعامل مع الأخطاء
+      emit(NewsError(errMessage: e.toString()));
     }
   }
-
-//   Future<void> getBreakingNews() async {
-//     emit(NewsLoading());
-//     try {
-//       List<NewsModel> breakingNews =
-//           await NewsServices().getBreakingNews(); // استدعاء الأخبار العاجلة
-//       emit(BreakingNewsLoaded(breakingNews)); // حالة جديدة للأخبار العاجلة
-//     } catch (e) {
-//       emit(NewsError(errMessage: e.toString()));
-//     }
-//   }
 }

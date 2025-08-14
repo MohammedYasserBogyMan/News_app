@@ -12,7 +12,6 @@ class SettingsView extends StatelessWidget {
         backgroundColor: Colors.transparent,
         title: BlocBuilder<ThemeCubit, ThemeMode>(
           builder: (context, themeMode) {
-            // تحديد لون النص بناءً على الوضع
             Color appBarTextColor =
                 themeMode == ThemeMode.dark ? Colors.white : Colors.black;
 
@@ -20,8 +19,7 @@ class SettingsView extends StatelessWidget {
               child: Text(
                 'الإعدادات',
                 textDirection: TextDirection.rtl,
-                style: TextStyle(
-                    fontSize: 20, color: appBarTextColor), // تطبيق اللون هنا
+                style: TextStyle(fontSize: 20, color: appBarTextColor),
               ),
             );
           },
@@ -30,25 +28,24 @@ class SettingsView extends StatelessWidget {
       body: Center(
         child: BlocBuilder<ThemeCubit, ThemeMode>(
           builder: (context, themeMode) {
-            // تحديد لون النص بناءً على الوضع
             Color textColor =
                 themeMode == ThemeMode.dark ? Colors.white : Colors.black;
 
             return SwitchListTile(
               title: Text(
                 'الوضع الداكن',
-                style: TextStyle(color: textColor), // تطبيق اللون هنا
+                style: TextStyle(color: textColor),
               ),
               value: themeMode == ThemeMode.dark,
               onChanged: (bool value) {
                 context.read<ThemeCubit>().toggleTheme(value);
               },
-              activeColor: Colors.blue, // لون الزر عند تفعيله
+              activeColor: Colors.blue,
               secondary: Icon(
                 themeMode == ThemeMode.dark
                     ? Icons.dark_mode
                     : Icons.light_mode,
-                color: textColor, // استخدام لون النص
+                color: textColor,
               ),
             );
           },

@@ -20,25 +20,21 @@ class _SplashViewState extends State<SplashView>
   void initState() {
     super.initState();
 
-    // إعداد AnimationController
     _controller = AnimationController(
       vsync: this,
       duration: const Duration(seconds: 3),
     );
 
-    // إعداد حركة التكبير
     _scaleAnimation = Tween<double>(begin: 0.5, end: 1.0).animate(_controller);
 
-    // بدء الأنيميشن
     _controller.forward();
 
-    // تحديث قيمة progress indicator بشكل تدريجي
     Future.delayed(const Duration(milliseconds: 500), _updateProgress);
   }
 
   void _updateProgress() {
     setState(() {
-      _progressValue += 0.05; // زيادة بنسبة 2%
+      _progressValue += 0.05;
       if (_progressValue < 1.0) {
         Future.delayed(const Duration(milliseconds: 100), _updateProgress);
       }
@@ -65,19 +61,19 @@ class _SplashViewState extends State<SplashView>
           ),
           const SizedBox(height: 20),
           SizedBox(
-            width: MediaQuery.of(context).size.width - 20, // عرض الشاشة
+            width: MediaQuery.of(context).size.width - 20,
             child: LinearProgressIndicator(
-              value: _progressValue, // قيمة المؤشر الخطي المتقدمة
-              backgroundColor: Colors.white, // لون الخلفية للمؤشر
-              color: Colors.blue[300], // لون المؤشر المتقدم
-              minHeight: 5.0, // سمك الخط
+              value: _progressValue,
+              backgroundColor: Colors.white,
+              color: Colors.blue[300],
+              minHeight: 5.0,
             ),
           ),
         ],
       ),
       nextScreen: const HomeView(),
       splashIconSize: 300,
-      duration: 3000, // مدة العرض الإجمالية
+      duration: 3000,
     );
   }
 }

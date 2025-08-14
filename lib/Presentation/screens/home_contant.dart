@@ -17,21 +17,17 @@ class HomeContent extends StatefulWidget {
 
 class _HomeContentState extends State<HomeContent> {
   Future<void> _refreshContent() async {
-    // هنا يمكنك استدعاء الـ Cubit لجلب البيانات الجديدة
-    // على سبيل المثال:
     BlocProvider.of<BreakingNewsCubit>(context).getBreakingNews();
     BlocProvider.of<NewsCubit>(context).getNews();
-    await Future.delayed(const Duration(seconds: 2)); // محاكاة تحميل البيانات
+    await Future.delayed(const Duration(seconds: 2));
   }
 
   @override
   Widget build(BuildContext context) {
     return RefreshIndicator(
-      onRefresh: _refreshContent, // وظيفة التحديث عند السحب
+      onRefresh: _refreshContent,
       child: SingleChildScrollView(
-        // استخدام SingleChildScrollView لتمكين السحب
-        physics:
-            const AlwaysScrollableScrollPhysics(), // التأكد من قابلية التمرير
+        physics: const AlwaysScrollableScrollPhysics(),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
           child: Column(

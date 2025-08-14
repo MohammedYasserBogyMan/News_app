@@ -13,7 +13,6 @@ class CustomNewsItem extends StatelessWidget {
     'health': 'صحة',
     'entertainment': 'ترفيه',
     'top': 'أهم الأخبار',
-    // يمكنك إضافة المزيد من الفئات حسب الحاجة
   };
 
   String translateCategory(String? category) {
@@ -62,20 +61,20 @@ class CustomNewsItem extends StatelessWidget {
                   const SizedBox(height: 5),
                   Text(
                     translateCategory(news.category),
-                  ), // عنوان الفئة
+                  ),
                   const SizedBox(height: 15),
                   Text(
-                    news.titel ?? 'لا يوجد عنوان هنا', // العنوان
+                    news.titel ?? 'لا يوجد عنوان هنا',
                     style: const TextStyle(
                       fontSize: 20,
                       overflow: TextOverflow.ellipsis,
                     ),
                     maxLines: 2,
-                    textDirection: TextDirection.rtl, // ضبط اتجاه النص
+                    textDirection: TextDirection.rtl,
                   ),
                   const SizedBox(height: 10),
                   Text(
-                    news.date ?? 'لا يوجد تاريخ متاح', // التاريخ
+                    news.date ?? 'لا يوجد تاريخ متاح',
                     style: const TextStyle(fontSize: 14, color: Colors.grey),
                   ),
                 ],

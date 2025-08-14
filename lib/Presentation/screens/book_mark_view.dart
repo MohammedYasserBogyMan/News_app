@@ -18,7 +18,6 @@ class BookmarksPage extends StatelessWidget {
         centerTitle: true,
         title: BlocBuilder<ThemeCubit, ThemeMode>(
           builder: (context, state) {
-            // تحديد لون النص بناءً على الوضع
             Color textColor =
                 state == ThemeMode.dark ? Colors.white : Colors.black;
 
@@ -39,7 +38,6 @@ class BookmarksPage extends StatelessWidget {
               ),
             );
           } else {
-            // تحويل قائمة الـ Bookmark إلى قائمة من نوع NewsModel
             List<NewsModel> newsList = bookmarks.map((bookmark) {
               return NewsModel(
                 category: '',

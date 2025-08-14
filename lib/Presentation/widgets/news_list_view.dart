@@ -16,7 +16,7 @@ class NewsListView extends StatelessWidget {
       itemCount: breakingNews.length,
       itemBuilder: (context, index) {
         final newsItem = breakingNews[index];
-        return CustomNewsItem(news: newsItem); // الحفاظ على CustomNewsItem
+        return CustomNewsItem(news: newsItem);
       },
     );
   }

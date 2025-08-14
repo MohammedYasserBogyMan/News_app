@@ -22,10 +22,9 @@ class NewsServices {
             image: article['image_url'],
             author: article['creator'] is List
                 ? (article['creator'] as List).join(', ')
-                : article['creator'], // تحويل القائمة إلى نص
+                : article['creator'],
             contant: article['content'],
-            category: article['category'][0] // تحويل القائمة إلى نص
-            );
+            category: article['category'][0]);
         articleList.add(art);
       }
       return articleList;
@@ -54,10 +53,9 @@ class NewsServices {
             image: article['image_url'],
             author: article['creator'] is List
                 ? (article['creator'] as List).join(', ')
-                : article['creator'], // تحويل القائمة إلى نص
+                : article['creator'],
             contant: article['content'],
-            category: article['category'][0] // تحويل القائمة إلى نص
-            );
+            category: article['category'][0]);
         articleList.add(art);
       }
       return articleList;

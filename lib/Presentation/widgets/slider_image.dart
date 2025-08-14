@@ -27,7 +27,7 @@ class _CustomSliderImageState extends State<CustomSliderImage> {
         children: [
           InkWell(
             onTap: () {
-              final int index = activeIndex; // استخدام activeIndex
+              final int index = activeIndex;
               final NewsModel newsItem = widget.newsList[index];
               Navigator.push(
                 context,
@@ -37,12 +37,10 @@ class _CustomSliderImageState extends State<CustomSliderImage> {
               );
             },
             child: CarouselSlider.builder(
-              itemCount: widget.newsList.length > 7
-                  ? 7
-                  : widget.newsList.length, // عرض 7 عناصر كحد أقصى
+              itemCount:
+                  widget.newsList.length > 7 ? 7 : widget.newsList.length,
               itemBuilder: (context, index, realIndex) {
-                final urlImage =
-                    widget.newsList[index].image; // الحصول على صورة الخبر
+                final urlImage = widget.newsList[index].image;
                 return buildImage(urlImage, index);
               },
               options: CarouselOptions(
@@ -52,7 +50,7 @@ class _CustomSliderImageState extends State<CustomSliderImage> {
                 autoPlayAnimationDuration: const Duration(seconds: 1),
                 onPageChanged: (index, reason) {
                   setState(() {
-                    activeIndex = index; // تحديث activeIndex عند تغيير الصفحة
+                    activeIndex = index;
                   });
                 },
               ),
@@ -73,9 +71,7 @@ class _CustomSliderImageState extends State<CustomSliderImage> {
           activeDotColor: Colors.blue[300]!,
         ),
         activeIndex: activeIndex,
-        count: widget.newsList.length > 7
-            ? 7
-            : widget.newsList.length, // عرض 7 عناصر كحد أقصى
+        count: widget.newsList.length > 7 ? 7 : widget.newsList.length,
       );
   Widget buildImage(String? urlImage, int index) {
     return ClipRRect(
@@ -85,14 +81,14 @@ class _CustomSliderImageState extends State<CustomSliderImage> {
           Image.network(
             urlImage ??
                 'https://img.freepik.com/premium-vector/default-image-icon-vector-missing-picture-page-website-design-mobile-app-no-photo-available_87543-11093.jpg',
-            fit: BoxFit.cover, // استخدم BoxFit.cover
+            fit: BoxFit.cover,
             width: double.infinity,
-            height: double.infinity, // تأكد من تحديد العرض والارتفاع
+            height: double.infinity,
             errorBuilder:
                 (BuildContext context, Object error, StackTrace? stackTrace) {
               return Image.network(
                 'https://img.freepik.com/premium-vector/default-image-icon-vector-missing-picture-page-website-design-mobile-app-no-photo-available_87543-11093.jpg',
-                fit: BoxFit.cover, // استخدم BoxFit.cover أيضًا هنا
+                fit: BoxFit.cover,
                 width: double.infinity,
                 height: double.infinity,
               );

@@ -16,11 +16,11 @@ class DraggableSheetScroll extends StatelessWidget {
       minChildSize: 0.5,
       maxChildSize: 0.6,
       builder: (BuildContext context, ScrollController scrollController) {
-        final theme = Theme.of(context); // الحصول على الثيم
+        final theme = Theme.of(context);
 
         return Container(
           decoration: BoxDecoration(
-            color: theme.scaffoldBackgroundColor, // استخدم لون الخلفية من الثيم
+            color: theme.scaffoldBackgroundColor,
             borderRadius: const BorderRadius.only(
               topLeft: Radius.circular(30),
               topRight: Radius.circular(30),
@@ -44,8 +44,7 @@ class DraggableSheetScroll extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
-                    color: theme.textTheme.bodyLarge
-                        ?.color, // استخدام لون النص من الثيم
+                    color: theme.textTheme.bodyLarge?.color,
                   ),
                 ),
                 const SizedBox(height: 12),
@@ -57,8 +56,7 @@ class DraggableSheetScroll extends StatelessWidget {
                       textDirection: TextDirection.rtl,
                       style: TextStyle(
                         fontSize: 16,
-                        color: theme.textTheme.bodyLarge
-                            ?.color, // استخدام لون النص من الثيم
+                        color: theme.textTheme.bodyLarge?.color,
                       ),
                       overflow: TextOverflow.ellipsis,
                       maxLines: 10,

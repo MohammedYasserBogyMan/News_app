@@ -20,7 +20,6 @@ class _NewsDetilsViewState extends State<NewsDetilsView> {
   @override
   void initState() {
     super.initState();
-    // تحقق إذا كان الخبر موجودًا بالفعل في المفضلة عند بدء العرض
     isBookmarked = BlocProvider.of<BookmarkCubit>(context)
         .isBookmarked(widget.newsitem.titel ?? '');
   }
@@ -33,7 +32,6 @@ class _NewsDetilsViewState extends State<NewsDetilsView> {
     );
 
     if (isBookmarked) {
-      // إذا كان موجودًا في المفضلة، قم بإزالته
       BlocProvider.of<BookmarkCubit>(context).removeBookmark(bookmark);
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
@@ -45,7 +43,6 @@ class _NewsDetilsViewState extends State<NewsDetilsView> {
         ),
       );
     } else {
-      // إذا لم يكن موجودًا، قم بإضافته
       BlocProvider.of<BookmarkCubit>(context).addBookmark(bookmark);
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
@@ -59,7 +56,7 @@ class _NewsDetilsViewState extends State<NewsDetilsView> {
     }
 
     setState(() {
-      isBookmarked = !isBookmarked; // تغيير الحالة
+      isBookmarked = !isBookmarked;
     });
   }
 
@@ -68,14 +65,12 @@ class _NewsDetilsViewState extends State<NewsDetilsView> {
     return Scaffold(
       body: Stack(
         children: [
-          // الجزء العلوي الذي يحتوي على الصورة والعنوان
           SizedBox(
             height: 450,
             child: Stack(
               children: [
-                // الصورة الرئيسية للخبر
                 Image.network(
-                  widget.newsitem.image ?? '', // تأكد من وجود الصورة
+                  widget.newsitem.image ?? '',
                   height: 500,
                   width: double.infinity,
                   fit: BoxFit.cover,
@@ -106,14 +101,12 @@ class _NewsDetilsViewState extends State<NewsDetilsView> {
                     style: const TextStyle(fontSize: 20, color: Colors.white),
                     maxLines: 2,
                     textDirection: TextDirection.rtl,
-                    textAlign: TextAlign.right, // إضافة محاذاة النص لليمين
+                    textAlign: TextAlign.right,
                   ),
                 ),
               ],
             ),
           ),
-
-          // إضافة AppBar يحتوي على أيقونة الرجوع وأيقونة Bookmark
           Positioned(
             top: 0,
             left: 0,
@@ -133,13 +126,11 @@ class _NewsDetilsViewState extends State<NewsDetilsView> {
                     isBookmarked ? Icons.bookmark : Icons.bookmark_border,
                     color: Colors.white,
                   ),
-                  onPressed: toggleBookmark, // تغيير الحالة عند الضغط
+                  onPressed: toggleBookmark,
                 ),
               ],
             ),
           ),
-
-          // DraggableScrollableSheet
           DraggableSheetScroll(newsitem: widget.newsitem),
         ],
       ),

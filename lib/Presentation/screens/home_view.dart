@@ -6,7 +6,7 @@ import 'package:news_app_new_training/Presentation/screens/home_contant.dart';
 import 'package:news_app_new_training/Presentation/screens/profile_view.dart';
 import 'package:news_app_new_training/logic/cubit/cubit/breaking_news_cubit.dart';
 import 'package:news_app_new_training/logic/cubit/news/news_cubit.dart';
-import 'package:news_app_new_training/logic/cubit/them/cubit/them_cubit.dart'; // تأكد من إضافة هذه الاستيراد
+import 'package:news_app_new_training/logic/cubit/them/cubit/them_cubit.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -36,14 +36,13 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ThemeCubit, ThemeMode>(
-      // إضافة BlocBuilder هنا
       builder: (context, themeMode) {
         final isDarkMode = themeMode == ThemeMode.dark;
 
         return Scaffold(
           bottomNavigationBar: Container(
             decoration: BoxDecoration(
-              color: isDarkMode ? Colors.black : Colors.white, // لون الخلفية
+              color: isDarkMode ? Colors.black : Colors.white,
               boxShadow: [
                 BoxShadow(
                   blurRadius: 20,
@@ -56,18 +55,14 @@ class _HomeViewState extends State<HomeView> {
                 padding:
                     const EdgeInsets.symmetric(horizontal: 15.0, vertical: 8),
                 child: GNav(
-                  backgroundColor: isDarkMode
-                      ? Colors.black
-                      : Colors.white, // خلفية أزرار التنقل
+                  backgroundColor: isDarkMode ? Colors.black : Colors.white,
                   gap: 8,
                   activeColor: Colors.white,
                   iconSize: 24,
                   padding:
                       const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-                  tabBackgroundColor:
-                      Colors.blue[300]!, // لون خلفية التبويب النشط
-                  color:
-                      isDarkMode ? Colors.white : Colors.black, // لون الأيقونات
+                  tabBackgroundColor: Colors.blue[300]!,
+                  color: isDarkMode ? Colors.white : Colors.black,
                   tabs: const [
                     GButton(
                       icon: Icons.person_outline,
