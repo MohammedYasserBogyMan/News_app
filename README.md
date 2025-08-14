@@ -45,7 +45,7 @@
 
 ## 🖼️ Demo & Screenshotsa
 
-### 📱 App Screens Preview
+### 📱 App Screens Preview (Tap on image)
 
 [![Watch the demo](screenshot/NEWSAPP.png)](screenshot/NEWSAPP.mp4)
 
