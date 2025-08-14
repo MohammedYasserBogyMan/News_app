@@ -47,7 +47,7 @@
 
 ### 📱 App Screens Preview
 
-> **Note**: Screenshots will be added here showing the main features of the app including home screen, news details, bookmarks, and theme switching.
+[![Watch the demo](screenshot/NEWSAPP.png)](screenshot/NEWSAPP.mp4)
 
 #### Key Functionality
 
